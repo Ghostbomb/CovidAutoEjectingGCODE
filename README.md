@@ -1,2 +1,2 @@
 # CovidAutoEjectingGCODE
-Auto Ejection GCODE I use for automatically ejecting Face Shields
+Auto Ejection GCODE / PrusaSlicer Projects I use for automatically ejecting Face Shields
