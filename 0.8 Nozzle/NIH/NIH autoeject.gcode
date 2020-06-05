@@ -13,7 +13,7 @@ G4 ;vibe
 G90 ;Absolute positioning 
 
 G0 X100 Y0 F5000
-{if layer_z < max_print_height}G1 Z{z_offset+min(layer_z+5, max_print_height)}{endif} ; Move print head up
+{if layer_z < max_print_height}G1 Z{z_offset+min(layer_z+10, max_print_height)}{endif} ; Move print head up
 
 {if filament_type[0] == "PLA"}
 ;PLA
@@ -43,12 +43,34 @@ G4 S15
 M190 R30
 M400
 G4 ; vibe
+G4 S600
 M106 S0; fan to 0%
 ;endPETG
 {endif}
 
 
 {if layer_z < max_print_height}G1 Z{z_offset+min(layer_z+10, max_print_height)}{endif} ; Move print head up
+G0 X100.000 Y195.000 F5000; move into position 
+
+G0 Z1.000 F1000 ; Lower Gantry 
+
+;Left Tab Push
+G0 Y162 F3000
+G0 X36 F2000
+G4
+G0 X28.5 F500 ;push to free
+
+;Right Tab Push
+G0 Y162 F3000
+G0 X165 F2000
+G4
+G0 X172.5 F500 ;push to free
+
+G0 X100 F5000 ;reset
+
+G1 Z20
+G28 X0;reset to do tab push again
+
 G0 X100.000 Y195.000 F5000; move into position 
 
 G0 Z1.000 F1000 ; Lower Gantry 
